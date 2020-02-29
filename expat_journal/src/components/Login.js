@@ -21,7 +21,7 @@ function Login() {
       .then(res => {
         localStorage.setItem("token", res.data.token);
         console.log(res);
-        //push to JournalList: list of users images
+        //PUSH TO JOURNALLIST COMPONENT: dashboard --> list of users images
         // history.push("/");
       })
       .catch(err => console.log(err));
@@ -31,21 +31,27 @@ function Login() {
     <div>
       <h3> Please Login In Here: </h3>
       <form className="formContainer" onSubmit={onLogin}>
-        <input
-          type="text"
-          name="email"
-          placeholder="Please enter email"
-          value={userLogin.email}
-          onChange={handleChange}
-        />
+        <label>
+          Email: <br></br>
+          <input
+            type="text"
+            name="email"
+            placeholder="Please enter email"
+            value={userLogin.email}
+            onChange={handleChange}
+          />
+        </label>
         <br></br>
-        <input
-          type="password"
-          name="password"
-          placeholder="Please enter Password"
-          value={userLogin.password}
-          onChange={handleChange}
-        />
+        <label>
+          Password: <br></br>
+          <input
+            type="password"
+            name="password"
+            placeholder="Please enter Password"
+            value={userLogin.password}
+            onChange={handleChange}
+          />
+        </label>
         <br></br>
         <button>Log In</button>
       </form>
