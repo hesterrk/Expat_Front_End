@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch, Link } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import HomePage from "./components/HomePage";
 import SignUp from "./components/SignUp";
@@ -18,8 +18,6 @@ function App() {
         <Route exact path="/login">
           <Login />
         </Route>
-
-
       </Switch>
     </div>
   );
