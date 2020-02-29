@@ -62,8 +62,9 @@ function Login(props) {
 
 const mapStateToProps = state => {
   return {
-    email: state.loginFormReducer.email,
-    password: state.loginFormReducer.password
+      //CHANGE THIS TO REFLECT UPDATED STATE
+    email: state.loginFormReducer.loginInput.email,
+    password: state.loginFormReducer.loginInput.password
   };
 };
 
