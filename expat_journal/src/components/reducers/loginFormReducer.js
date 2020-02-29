@@ -5,12 +5,11 @@ const initialValues = {
   password: ""
 };
 
-//Change Handler for forms reducer
-//ADD in: POST_SIGNUP_SUCCESS to return initial values and all other forms!!!! as can reuse this reducer function in all of the change handler forms
+//Change Handler for Login form
 
-export const formReducer = (state = initialValues, action) => {
+export const loginFormReducer = (state = initialValues, action) => {
   switch (action.type) {
-    case types.INPUT_CHANGE:
+    case types.LOGIN_INPUT_CHANGE:
       return {
         ...state,
         [action.payload.inputName]: action.payload.inputValue

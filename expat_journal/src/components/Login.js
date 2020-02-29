@@ -1,43 +1,44 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import { changeLoginInput } from "./actions/actionCreators";
+import { connect } from "react-redux";
 
-function Login() {
-  const [userLogin, setUserLogin] = useState(initialValues);
-
+function Login(props) {
   const history = useHistory();
 
   const handleChange = e => {
-    setUserLogin({
-      ...userLogin,
-      [e.target.name]: e.target.value
+    props.changeLoginInput({
+      inputName: e.target.name,
+      inputValue: e.target.value
     });
   };
 
-  const onLogin = e => {
-    e.preventDefault();
-    axios
-      .post("https://expat-journals.herokuapp.com/api/v1/auth/login", userLogin)
-      .then(res => {
-        localStorage.setItem("token", res.data.token);
-        console.log(res);
-        //PUSH TO JOURNALLIST COMPONENT: dashboard --> list of users images
-        // history.push("/");
-      })
-      .catch(err => console.log(err));
-  };
+
+//   const onLogin = e => {
+//     e.preventDefault();
+//     axios
+//       .post("https://expat-journals.herokuapp.com/api/v1/auth/login", userLogin)
+//       .then(res => {
+//         localStorage.setItem("token", res.data.token);
+//         console.log(res);
+//         //PUSH TO JOURNALLIST COMPONENT: dashboard --> list of users images
+//         // history.push("/");
+//       })
+//       .catch(err => console.log(err));
+//   };
 
   return (
     <div>
       <h3> Please Login In Here: </h3>
-      <form className="formContainer" onSubmit={onLogin}>
+      <form className="formContainer">
         <label>
           Email: <br></br>
           <input
             type="text"
             name="email"
             placeholder="Please enter email"
-            value={userLogin.email}
+            value={props.email}
             onChange={handleChange}
           />
         </label>
@@ -48,7 +49,7 @@ function Login() {
             type="password"
             name="password"
             placeholder="Please enter Password"
-            value={userLogin.password}
+            value={props.password}
             onChange={handleChange}
           />
         </label>
@@ -59,9 +60,11 @@ function Login() {
   );
 }
 
-export default Login;
-
-const initialValues = {
-  email: "",
-  password: ""
+const mapStateToProps = state => {
+  return {
+    email: state.loginFormReducer.email,
+    password: state.loginFormReducer.password
+  };
 };
+
+export default connect(mapStateToProps, { changeLoginInput })(Login);
