@@ -5,7 +5,6 @@ import * as types from "./actionTypes";
 
 
 //Login form change Handler function only
-//CHANGE: MAKE THIS LOCAL USESTATE ON LOGIN PAGE 
 export function changeLoginInput({ inputName, inputValue }) {
   return {
     type: types.LOGIN_INPUT_CHANGE,

@@ -85,6 +85,8 @@ function HomePage() {
               <Button className="loginButton">Login </Button>
             </NavLink>
           </SpecialDiv>
+
+          <NavLink exact to="/journallist">PROTECTED JOURNAL LIST</NavLink>
         </Div>
       </ThemeProvider>
     </NoSsr>
