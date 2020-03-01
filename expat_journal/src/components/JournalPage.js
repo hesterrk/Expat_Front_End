@@ -1,4 +1,6 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
+import { connect } from "react-redux";
 
 //Properties from data: caption, first_name, image_url, last_name, location, message
 
@@ -8,7 +10,7 @@ import React from "react";
 
 // })
 
-function JournalPage() {
+function JournalPage(props) {
   return (
     <div>
       <h3> Your Post: </h3>
