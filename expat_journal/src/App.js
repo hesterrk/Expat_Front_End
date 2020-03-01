@@ -4,6 +4,7 @@ import "./App.css";
 import HomePage from "./components/HomePage";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
+import JournalList from "./components/JournalList";
 
 function App() {
   return (
@@ -17,6 +18,10 @@ function App() {
         </Route>
         <Route exact path="/login">
           <Login />
+        </Route>
+        {/* //NEEDS TO BE PROTECTED */}
+        <Route exact path="/journallist">
+          <JournalList />
         </Route>
       </Switch>
     </div>

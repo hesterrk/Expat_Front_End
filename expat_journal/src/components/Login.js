@@ -6,6 +6,9 @@ import { useHistory } from "react-router-dom";
 
 function Login(props) {
 
+  const history = useHistory();
+
+
   const handleChange = e => {
     props.changeLoginInput({
       inputName: e.target.name,
@@ -20,7 +23,7 @@ function Login(props) {
       email: props.email,
       password: props.password
     })
-    //history
+    history.push('/journallist')
 
     //         //PUSH TO JOURNALLIST COMPONENT: dashboard --> list of users images
 //         // history.push("/");
