@@ -6,7 +6,7 @@ const initialValues = {
     password: ""
   },
   // userLogin: [],
-  isLoading: false,
+  isLoading: false
 };
 
 //Functionality for Login form
@@ -19,7 +19,7 @@ export const loginFormReducer = (state = initialValues, action) => {
         loginInput: {
           ...state.loginInput,
           [action.payload.inputName]: action.payload.inputValue
-        }  
+        }
       };
 
     case types.POST_LOGIN_START:
@@ -31,8 +31,14 @@ export const loginFormReducer = (state = initialValues, action) => {
     case types.POST_LOGIN_SUCCESS:
       return {
         ...state,
-        isLoading: false,
+        isLoading: false
         // userLogin: action.payload
+      };
+
+    case types.POST_LOGIN_ERROR:
+      return {
+        ...state,
+        error: action.payload
       };
 
     case types.POST_CLEAR_LOGIN:
