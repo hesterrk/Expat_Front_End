@@ -1,18 +1,18 @@
 import * as types from "../actions/actionTypes";
 
 const initialValues = {
-  journals: []
+  journal: []
 };
 
-export const journalListReducer = (state = initialValues, action) => {
+export const journalPageReducer = (state = initialValues, action) => {
   switch (action.type) {
-    case types.GET_ALLJOURNALS_START:
+    case types.GET_ONEJOURNAL_START:
       return initialValues;
 
-    case types.GET_ALLJOURNALS_SUCCESS:
+    case types.GET_ONEJOURNAL_SUCCESS:
       return {
         ...state,
-        journals: action.payload
+        journal: action.payload
       };
 
     default:

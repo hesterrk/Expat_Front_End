@@ -35,12 +35,6 @@ export const loginFormReducer = (state = initialValues, action) => {
         // userLogin: action.payload
       };
 
-    case types.POST_LOGIN_ERROR:
-      return {
-        ...state,
-        error: action.payload
-      };
-
     case types.POST_CLEAR_LOGIN:
       return initialValues;
 

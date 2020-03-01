@@ -6,6 +6,7 @@ import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import JournalList from "./components/JournalList";
 import PrivateRoute from "./components/PrivateRoute";
+import JournalPage from "./components/JournalPage";
 
 function App() {
   return (
@@ -20,9 +21,11 @@ function App() {
         <Route exact path="/login">
           <Login />
         </Route>
-        {/* //NEEDS TO BE PROTECTED */}
         <PrivateRoute exact path="/journallist">
           <JournalList />
+        </PrivateRoute>
+        <PrivateRoute exact path="/journallist/:id">
+          <JournalPage />
         </PrivateRoute>
       </Switch>
     </div>

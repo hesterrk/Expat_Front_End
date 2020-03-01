@@ -29,10 +29,6 @@ export const postLogin = ({ email, password }) => dispatch => {
     })
     .catch(err => {
       console.log(err);
-      dispatch({
-        type: types.POST_LOGIN_ERROR,
-        payload: err.response
-      });
     });
 };
 
@@ -73,10 +69,6 @@ export const postSignUp = ({
     })
     .catch(err => {
       console.log(err);
-      dispatch({
-        type: types.POST_REGISTER_ERROR,
-        payload: err.response
-      });
     });
 };
 
@@ -88,17 +80,35 @@ export const getAllJournals = () => dispatch => {
   axiosWithAuth()
     .get("/api/v1/journals")
     .then(res => {
-      console.log(res.data)
+      // console.log(res.data);
       dispatch({
         type: types.GET_ALLJOURNALS_SUCCESS,
-        //CHECK DATA AGAIN from console
         payload: res.data.journals
       });
     })
     .catch(err => {
+      console.log(err);
+    });
+};
+
+//Individual Journal Page action creator
+
+export const getOneJournal = id => dispatch => {
+  dispatch({
+    type: types.GET_ONEJOURNAL_START
+  });
+
+  axiosWithAuth()
+    .get(`api/v1/journals/${id}`)
+    .then(res => {
+      console.log(res.data);
       dispatch({
-        type: types.GET_ALLJOURNALS_ERROR,
-        payload: err.reponse
+        type: types.GET_ALLJOURNALS_SUCCESS,
+        //see what res.data is!!!!!!
+        payload: res.data
       });
+    })
+    .catch(err => {
+      console.log(err);
     });
 };

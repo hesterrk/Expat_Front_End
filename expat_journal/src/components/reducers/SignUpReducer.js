@@ -36,12 +36,6 @@ export const signUpReducer = (state = initialValues, action) => {
         sendUser: action.payload
       };
 
-    case types.POST_REGISTER_ERROR:
-      return {
-        ...state,
-        error: action.payload
-      };
-
     case types.POST_CLEAR_REGISTER:
       return initialValues;
 
