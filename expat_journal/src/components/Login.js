@@ -1,11 +1,10 @@
 import React from "react";
-import axios from "axios";
-import { useHistory } from "react-router-dom";
-import { changeLoginInput } from "./actions/actionCreators";
+import { changeLoginInput, postLogin } from "./actions/actionCreators";
 import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
+
 
 function Login(props) {
-  const history = useHistory();
 
   const handleChange = e => {
     props.changeLoginInput({
@@ -15,23 +14,31 @@ function Login(props) {
   };
 
 
-//   const onLogin = e => {
-//     e.preventDefault();
+  const onLogin = e => {
+    e.preventDefault();
+    props.postLogin({
+      email: props.email,
+      password: props.password
+    })
+    //history
+
+    //         //PUSH TO JOURNALLIST COMPONENT: dashboard --> list of users images
+//         // history.push("/");
+   
 //     axios
 //       .post("https://expat-journals.herokuapp.com/api/v1/auth/login", userLogin)
 //       .then(res => {
 //         localStorage.setItem("token", res.data.token);
 //         console.log(res);
-//         //PUSH TO JOURNALLIST COMPONENT: dashboard --> list of users images
-//         // history.push("/");
+
 //       })
 //       .catch(err => console.log(err));
-//   };
+  };
 
   return (
     <div>
       <h3> Please Login In Here: </h3>
-      <form className="formContainer">
+      <form className="formContainer" onSubmit={onLogin}>
         <label>
           Email: <br></br>
           <input
@@ -62,10 +69,9 @@ function Login(props) {
 
 const mapStateToProps = state => {
   return {
-      //CHANGE THIS TO REFLECT UPDATED STATE
     email: state.loginFormReducer.loginInput.email,
     password: state.loginFormReducer.loginInput.password
   };
 };
 
-export default connect(mapStateToProps, { changeLoginInput })(Login);
+export default connect(mapStateToProps, { changeLoginInput, postLogin })(Login);
