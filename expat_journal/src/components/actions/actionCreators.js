@@ -125,7 +125,6 @@ export const postNewJournal = ({ message, location }) => dispatch => {
       location
     })
     .then(res => {
-      //CHECK RES.DATA
       console.log(res.data);
       dispatch({
         type: types.POST_JOURNAL_SUCCESS,
@@ -141,4 +140,24 @@ export function changeAddJournal({ inputName, inputValue }) {
     type: types.ADDING_INPUT_CHANGE,
     payload: { inputName, inputValue }
   };
+}
+
+//DELETING a journal: from journal page
+
+export const deleteJournal = id => dispatch => {
+  dispatch({
+    type: types.DELETING_JOURNAL_START
+  })
+  axiosWithAuth()
+  .delete(`api/v1/journals/${id}`)
+  .then(res => {
+    console.log(res, 'deleted')
+    //CHECK IS RES.DATA NEED TO DELETE? OR RES.DATA.JOURNAL
+    dispatch({
+      type: types.DELETING_JOURNAL_SUCCESS, payload: res.data
+    })
+  })
+  .catch(err => console.log(err));
+
+
 }

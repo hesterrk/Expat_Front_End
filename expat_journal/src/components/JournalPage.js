@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { connect } from "react-redux";
-import { getOneJournal } from "./actions/actionCreators";
+import { getOneJournal, deleteJournal } from "./actions/actionCreators";
 
 
 function JournalPage(props) {
@@ -11,11 +11,12 @@ function JournalPage(props) {
     props.getOneJournal(id);
   }, [id]);
 
-  //functions to call props.delete and props.edit action creator functions
+  // props.edit action creator functions
 
   return (
     <div>
       {/* //BUTTONS TO DELETE AND EDIT  */}
+      <button onClick={() => props.deleteJournal(id)}>Delete Post</button>
       <h3> Your Post: </h3>
       <p>First Name: {props.journal.first_name}</p>
       <p>Last Name:{props.journal.last_name}</p>
@@ -31,4 +32,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { getOneJournal })(JournalPage);
+export default connect(mapStateToProps, { getOneJournal, deleteJournal })(JournalPage);

@@ -3,7 +3,6 @@ import { useHistory, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getAllJournals } from "./actions/actionCreators";
 
-//Need button taking to AddJournal so can add new post!!!!
 
 function JournalList(props) {
   const history = useHistory();
