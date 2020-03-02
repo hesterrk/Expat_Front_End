@@ -112,7 +112,7 @@ export const getOneJournal = id => dispatch => {
     });
 };
 
-//Posting: adding new smurf
+//Posting: adding new Journal
 
 export const postNewJournal = ({ message, location }) => dispatch => {
   dispatch({
@@ -134,3 +134,11 @@ export const postNewJournal = ({ message, location }) => dispatch => {
     })
     .catch(err => console.log(err));
 };
+
+//INPUT CHANGE FOR ADDING NEW 
+export function changeAddJournal({ inputName, inputValue }) {
+  return {
+    type: types.ADDING_INPUT_CHANGE,
+    payload: { inputName, inputValue }
+  };
+}
