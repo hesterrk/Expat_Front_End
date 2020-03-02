@@ -28,12 +28,8 @@ function JournalList(props) {
             <p> Location: {item.location}</p>
             <p> Message: {item.message}</p>
           </div>
-        </Link>
+         </Link>
       ))}
-
-      {/* //Properties from data: caption, first_name, image_url, last_name, location, message */}
-      {/* //Link to indivdual posts for JournalPage */}
-      {/* //REACT ROUTER 2 GUIDED: ITEM LIST style */}
 
       <button onClick={onLogout}>Log out</button>
     </div>

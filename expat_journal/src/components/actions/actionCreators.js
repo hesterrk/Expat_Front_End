@@ -93,7 +93,7 @@ export const getAllJournals = () => dispatch => {
 
 //Individual Journal Page action creator
 
-export const getOneJournal = id => dispatch => {
+export const getOneJournal = (id) => dispatch => {
   dispatch({
     type: types.GET_ONEJOURNAL_START
   });
@@ -101,11 +101,11 @@ export const getOneJournal = id => dispatch => {
   axiosWithAuth()
     .get(`api/v1/journals/${id}`)
     .then(res => {
-      console.log(res.data);
+      console.log(res.data.journal);
       dispatch({
-        type: types.GET_ALLJOURNALS_SUCCESS,
-        //see what res.data is!!!!!!
-        payload: res.data
+        type: types.GET_ONEJOURNAL_SUCCESS,
+        //is an object 
+        payload: res.data.journal
       });
     })
     .catch(err => {

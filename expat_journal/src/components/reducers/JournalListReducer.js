@@ -10,6 +10,10 @@ export const journalListReducer = (state = initialValues, action) => {
       return initialValues;
 
     case types.GET_ALLJOURNALS_SUCCESS:
+      {
+        console.log(action.payload);
+      }
+
       return {
         ...state,
         journals: action.payload
