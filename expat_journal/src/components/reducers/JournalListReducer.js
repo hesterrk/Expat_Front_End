@@ -4,7 +4,7 @@ const initialValues = {
   journals: []
 };
 
-//GETTING ALL JOURNALS AND ADDING NEW JOURNAL reducer and DELETING 
+//GETTING ALL JOURNALS AND ADDING NEW JOURNAL reducer and DELETING
 
 export const journalListReducer = (state = initialValues, action) => {
   switch (action.type) {
@@ -30,30 +30,27 @@ export const journalListReducer = (state = initialValues, action) => {
         journals: [...state.journals, action.payload]
       };
 
-      case types.DELETING_JOURNAL_START :
-        return {
-          ...state
-        }
+    case types.DELETING_JOURNAL_START:
+      return {
+        ...state
+      };
 
-        case types.DELETING_JOURNAL_SUCCESS :
-          return {
-            ...state,
-            journals: [...state.journals, action.payload]
-          }
+    case types.DELETING_JOURNAL_SUCCESS:
+      return {
+        ...state,
+        journals: [...state.journals, action.payload]
+      };
 
-          case types.EDIT_JOURNAL_START :
-            return {
-              ...state
-            }
+    case types.EDIT_JOURNAL_START:
+      return {
+        ...state
+      };
 
-            case types.EDIT_JOURNAL_SUCCESS :
-                {
-                  console.log(action.payload);
-                }
-              return {
-                ...state,
-                journals: [...state.journals, action.payload]
-              }
+    case types.EDIT_JOURNAL_SUCCESS:
+      return {
+        ...state,
+        journals: [...state.journals, action.payload]
+      };
 
     default:
       return state;

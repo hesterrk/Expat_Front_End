@@ -5,7 +5,6 @@ const initialValues = {
     email: "",
     password: ""
   },
-  // userLogin: [],
   isLoading: false
 };
 

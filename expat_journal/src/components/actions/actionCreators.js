@@ -134,7 +134,7 @@ export const postNewJournal = ({ message, location }) => dispatch => {
     .catch(err => console.log(err));
 };
 
-//INPUT CHANGE FOR ADDING NEW 
+//INPUT CHANGE FOR ADDING NEW
 export function changeAddJournal({ inputName, inputValue }) {
   return {
     type: types.ADDING_INPUT_CHANGE,
@@ -147,23 +147,21 @@ export function changeAddJournal({ inputName, inputValue }) {
 export const deleteJournal = id => dispatch => {
   dispatch({
     type: types.DELETING_JOURNAL_START
-  })
+  });
   axiosWithAuth()
-  .delete(`api/v1/journals/${id}`)
-  .then(res => {
-    console.log(res, 'deleted')
-    //CHECK IS RES.DATA NEED TO DELETE? OR RES.DATA.JOURNAL
-    dispatch({
-      type: types.DELETING_JOURNAL_SUCCESS, payload: res.data
+    .delete(`api/v1/journals/${id}`)
+    .then(res => {
+      console.log(res, "deleted");
+      //CHECK IS RES.DATA NEED TO DELETE? OR RES.DATA.JOURNAL
+      dispatch({
+        type: types.DELETING_JOURNAL_SUCCESS,
+        payload: res.data
+      });
     })
-  })
-  .catch(err => console.log(err));
+    .catch(err => console.log(err));
+};
 
-
-}
-
-
-//New: input CHANGE FOR updating  
+//New: input CHANGE FOR updating
 export function changeUpdateJournal({ inputName, inputValue }) {
   return {
     type: types.EDITING_JOURNAL_CHANGE,
@@ -176,20 +174,18 @@ export function changeUpdateJournal({ inputName, inputValue }) {
 export const updateTheJournal = ({ id, message, location }) => dispatch => {
   dispatch({
     type: types.EDIT_JOURNAL_START
-
   });
   axiosWithAuth()
-  .put(`api/v1/journals/${id}`, {
-    message,
-    location
-
-  })
-  .then(res => {
-    console.log(res.data)
-    //CHECK RES.DATA 
-    dispatch({
-      type: types.EDIT_JOURNAL_SUCCESS, payload: res.data.journal
+    .put(`api/v1/journals/${id}`, {
+      message,
+      location
     })
-  })
-  .catch(err => console.log(err))
+    .then(res => {
+      console.log(res.data);
+      dispatch({
+        type: types.EDIT_JOURNAL_SUCCESS,
+        payload: res.data.journal
+      });
+    })
+    .catch(err => console.log(err));
 };

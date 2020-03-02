@@ -76,6 +76,7 @@ function HomePage() {
               alt="header"
             />
           </Span>
+          <H5> The best place to organize and share stories, pictures, information as an expat </H5>
 
           <SpecialDiv>
             <NavLink exact to="/signup">

@@ -10,9 +10,6 @@ export const journalPageReducer = (state = initialValues, action) => {
       return initialValues;
 
     case types.GET_ONEJOURNAL_SUCCESS:
-      {
-        console.log(action.payload);
-      }
       return {
         ...state,
         journal: action.payload

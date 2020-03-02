@@ -5,8 +5,7 @@ const initialValues = {
   location: ""
 };
 
-//Add Journal form Reducer and (Edit Journal?)
-
+//Add Journal form Reducer and Edit Journal
 
 export const addJournalReducer = (state = initialValues, action) => {
   switch (action.type) {
@@ -19,16 +18,16 @@ export const addJournalReducer = (state = initialValues, action) => {
     case types.POST_JOURNAL_SUCCESS:
       return initialValues;
 
-      //new: editing
+    //new: editing
 
-      case types.EDITING_JOURNAL_CHANGE :
-        return {
-          ...state,
-          [action.payload.inputName]: action.payload.inputValue
-        };
+    case types.EDITING_JOURNAL_CHANGE:
+      return {
+        ...state,
+        [action.payload.inputName]: action.payload.inputValue
+      };
 
-        case types.EDIT_JOURNAL_SUCCESS :
-          return initialValues
+    case types.EDIT_JOURNAL_SUCCESS:
+      return initialValues;
 
     default:
       return state;

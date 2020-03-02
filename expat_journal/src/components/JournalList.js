@@ -3,7 +3,6 @@ import { useHistory, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getAllJournals } from "./actions/actionCreators";
 
-
 function JournalList(props) {
   const history = useHistory();
 
@@ -19,8 +18,9 @@ function JournalList(props) {
   return (
     <div>
       <h4> Your Page of All Your Journal Posts </h4>
-      <Link to='/addjournal'>
-      <button>Add New Journal</button></Link>
+      <Link to="/addjournal">
+        <button>Add New Journal</button>
+      </Link>
       {props.journals.map(item => (
         <Link to={`/journallist/${item.id}`} key={item.id}>
           <div>
@@ -29,7 +29,7 @@ function JournalList(props) {
             <p> Location: {item.location}</p>
             <p> Message: {item.message}</p>
           </div>
-         </Link>
+        </Link>
       ))}
 
       <button onClick={onLogout}>Log out</button>
