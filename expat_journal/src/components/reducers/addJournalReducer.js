@@ -27,7 +27,8 @@ export const addJournalReducer = (state = initialValues, action) => {
           [action.payload.inputName]: action.payload.inputValue
         };
 
-        //ADD IN edit_journal_success: initialValues to clear!
+        case types.EDIT_JOURNAL_SUCCESS :
+          return initialValues
 
     default:
       return state;
