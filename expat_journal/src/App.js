@@ -8,6 +8,7 @@ import JournalList from "./components/JournalList";
 import PrivateRoute from "./components/PrivateRoute";
 import JournalPage from "./components/JournalPage";
 import AddJournal from "./components/AddJournal";
+import UpdateJournal from "./components/UpdateJournal";
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
         </PrivateRoute>
         <PrivateRoute exact path="/addjournal">
           <AddJournal />
+        </PrivateRoute>
+        <PrivateRoute exact path="/updatejournal/:id">
+          <UpdateJournal />
         </PrivateRoute>
       </Switch>
     </div>
