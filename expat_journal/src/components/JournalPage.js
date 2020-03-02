@@ -16,15 +16,19 @@ function JournalPage(props) {
     props.deleteJournal(id)
     history.push('/journallist')
 
-  }
+  };
 
-  // props.edit action creator functions
+  function goToEdit(e) {
+    e.preventDefault();
+    history.push(`/updatejournal/${id}`)
+  };
 
   return (
     <div>
-      {/* //BUTTONS TO DELETE AND EDIT  */}
+    
       {/* <button onClick={() => props.deleteJournal(id)}>Delete Post</button> */}
       <button onClick={() => deletePost(id)}>Delete Post</button>
+      <button onClick={goToEdit}>Edit</button>
 
       <h3> Your Post: </h3>
       <p>First Name: {props.journal.first_name}</p>
