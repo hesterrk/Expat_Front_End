@@ -1,11 +1,39 @@
 import React from 'react';
+import { useHistory, useParams } from "react-router-dom";
+import { updateTheJournal, changeUpdateJournal } from "./actions/actionCreators";
+import { connect } from "react-redux";
 
-function UpdateJournal() {
+function UpdateJournal(props) {
+
+    const history = useHistory();
+    const { id } = useParams();
+
+
+    const updateChange = e => {
+        props.changeUpdateJournal({
+          inputName: e.target.name,
+          inputValue: e.target.value
+        });
+      };
+
+      const onSubmit = e => {
+        e.preventDefault();
+        props.updateTheJournal({
+          message: props.message,
+          location: props.location,
+          id
+        });
+        // history.push('/journallist')
+        history.push(`/journallist/${id}`)
+      };
+
+
+
 
     return (
         <div>
             <h3>Update Your Post</h3>
-            <form>
+            <form onSubmit={onSubmit}>
         <label>
           {" "}
           Message:
@@ -13,8 +41,8 @@ function UpdateJournal() {
             type="text"
             name="message"
             placeholder="Update message"
-            // value={}
-            // onChange={onChange}
+            value={props.message}
+            onChange={updateChange}
           />
         </label>
         <br></br>
@@ -25,8 +53,8 @@ function UpdateJournal() {
             type="text"
             name="location"
             placeholder="Update location"
-            // value={}
-            // onChange={onChange}
+            value={props.location}
+            onChange={updateChange}
           />
         </label>
 
@@ -37,11 +65,17 @@ function UpdateJournal() {
     )
 }
 
-export default UpdateJournal;
+
+const mapStateToProps = state => {
+    return {
+      message: state.addJournalReducer.message,
+      location: state.addJournalReducer.location
+    };
+  };
+  
+  export default connect(mapStateToProps, { updateTheJournal, changeUpdateJournal })(
+    UpdateJournal
+  );
 
 
-//link on journalPage component to come here 
-//create action types, add action types to reducer (journallist reducer): x2: start, success ALSO need an input change one (new action type, but add it to addJournalReducer!!!)
-//creat edit action function creator with axios: 'api/v1/journals/${id}': message, location 
-//connect to redux store and link up with reducer state and action creator function
-//finish form: onchange, onsubmit and values 
+

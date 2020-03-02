@@ -161,3 +161,35 @@ export const deleteJournal = id => dispatch => {
 
 
 }
+
+
+//New: input CHANGE FOR updating  
+export function changeUpdateJournal({ inputName, inputValue }) {
+  return {
+    type: types.EDITING_JOURNAL_CHANGE,
+    payload: { inputName, inputValue }
+  };
+}
+
+//NEW: update journal
+
+export const updateTheJournal = ({ id, message, location }) => dispatch => {
+  dispatch({
+    type: types.EDIT_JOURNAL_START
+
+  });
+  axiosWithAuth()
+  .put(`api/v1/journals/${id}`, {
+    message,
+    location
+
+  })
+  .then(res => {
+    console.log(res.data)
+    //CHECK RES.DATA 
+    dispatch({
+      type: types.EDIT_JOURNAL_SUCCESS, payload: res.data.journal
+    })
+  })
+  .catch(err => console.log(err))
+};

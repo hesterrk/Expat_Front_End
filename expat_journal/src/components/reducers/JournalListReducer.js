@@ -41,6 +41,20 @@ export const journalListReducer = (state = initialValues, action) => {
             journals: [...state.journals, action.payload]
           }
 
+          case types.EDIT_JOURNAL_START :
+            return {
+              ...state
+            }
+
+            case types.EDIT_JOURNAL_SUCCESS :
+                {
+                  console.log(action.payload);
+                }
+              return {
+                ...state,
+                journals: [...state.journals, action.payload]
+              }
+
     default:
       return state;
   }
