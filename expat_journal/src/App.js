@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import JournalList from "./components/JournalList";
 import PrivateRoute from "./components/PrivateRoute";
 import JournalPage from "./components/JournalPage";
+import AddJournal from "./components/AddJournal";
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
         </PrivateRoute>
         <PrivateRoute exact path="/journallist/:id">
           <JournalPage />
+        </PrivateRoute>
+        <PrivateRoute exact path="/addjournal">
+          <AddJournal />
         </PrivateRoute>
       </Switch>
     </div>

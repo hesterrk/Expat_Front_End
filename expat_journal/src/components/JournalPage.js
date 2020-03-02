@@ -3,7 +3,6 @@ import { useHistory, useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import { getOneJournal } from "./actions/actionCreators";
 
-//Properties from data: caption, first_name, image_url, last_name, location, message
 
 function JournalPage(props) {
   const { id } = useParams();
@@ -11,6 +10,8 @@ function JournalPage(props) {
   useEffect(() => {
     props.getOneJournal(id);
   }, [id]);
+
+  //functions to call props.delete and props.edit action creator functions
 
   return (
     <div>

@@ -20,6 +20,8 @@ function JournalList(props) {
   return (
     <div>
       <h4> Your Page of All Your Journal Posts </h4>
+      <Link to='/addjournal'>
+      <button>Add New Journal</button></Link>
       {props.journals.map(item => (
         <Link to={`/journallist/${item.id}`} key={item.id}>
           <div>

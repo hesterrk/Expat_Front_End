@@ -93,7 +93,7 @@ export const getAllJournals = () => dispatch => {
 
 //Individual Journal Page action creator
 
-export const getOneJournal = (id) => dispatch => {
+export const getOneJournal = id => dispatch => {
   dispatch({
     type: types.GET_ONEJOURNAL_START
   });
@@ -104,11 +104,33 @@ export const getOneJournal = (id) => dispatch => {
       console.log(res.data.journal);
       dispatch({
         type: types.GET_ONEJOURNAL_SUCCESS,
-        //is an object 
         payload: res.data.journal
       });
     })
     .catch(err => {
       console.log(err);
     });
+};
+
+//Posting: adding new smurf
+
+export const postNewJournal = ({ message, location }) => dispatch => {
+  dispatch({
+    type: types.POST_JOURNAL_START
+  });
+
+  axiosWithAuth()
+    .post("api/v1/journals", {
+      message,
+      location
+    })
+    .then(res => {
+      //CHECK RES.DATA
+      console.log(res.data);
+      dispatch({
+        type: types.POST_JOURNAL_SUCCESS,
+        payload: res.data.journal
+      });
+    })
+    .catch(err => console.log(err));
 };

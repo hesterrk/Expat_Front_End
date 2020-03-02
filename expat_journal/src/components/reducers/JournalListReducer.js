@@ -4,6 +4,8 @@ const initialValues = {
   journals: []
 };
 
+//GETTING ALL JOURNALS AND ADDING NEW JOURNAL reducer
+
 export const journalListReducer = (state = initialValues, action) => {
   switch (action.type) {
     case types.GET_ALLJOURNALS_START:
@@ -17,6 +19,15 @@ export const journalListReducer = (state = initialValues, action) => {
       return {
         ...state,
         journals: action.payload
+      };
+
+    case types.POST_JOURNAL_START:
+      return initialValues;
+
+    case types.POST_JOURNAL_SUCCESS:
+      return {
+        ...state,
+        journals: [...state.journals, action.payload]
       };
 
     default:
