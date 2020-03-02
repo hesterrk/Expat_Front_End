@@ -23,7 +23,8 @@ function UpdateJournal(props) {
           location: props.location,
           id
         });
-        history.push('/journallist')
+        history.go(-1)
+        // history.push('/journallist')
       };
 
 

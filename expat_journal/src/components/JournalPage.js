@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getOneJournal, deleteJournal } from "./actions/actionCreators";
 
@@ -29,6 +29,8 @@ function JournalPage(props) {
       {/* <button onClick={() => props.deleteJournal(id)}>Delete Post</button> */}
       <button onClick={() => deletePost(id)}>Delete Post</button>
       <button onClick={goToEdit}>Edit</button>
+      <Link to={'/journallist'}>
+      <button>Back to Journal List</button></Link>
 
       <h3> Your Post: </h3>
       <p>First Name: {props.journal.first_name}</p>
