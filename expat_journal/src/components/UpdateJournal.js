@@ -23,8 +23,7 @@ function UpdateJournal(props) {
           location: props.location,
           id
         });
-        // history.push('/journallist')
-        history.push(`/journallist/${id}`)
+        history.push('/journallist')
       };
 
 
