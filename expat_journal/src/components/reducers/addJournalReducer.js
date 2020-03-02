@@ -13,7 +13,7 @@ export const addJournalReducer = (state = initialValues, action) => {
         [action.payload.inputName]: action.payload.inputValue
       };
 
-    case types.ADDING_CLEAR_FINISH:
+    case types.POST_JOURNAL_SUCCESS:
       return initialValues;
 
     default:
