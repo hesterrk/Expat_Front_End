@@ -10,15 +10,17 @@ const Div = styled.div`
   flex-direction: column;
   justify-content: center;
   border: 1px solid #eef2f3;
-  padding: 0.3rem;
+  padding-left: 0.3rem;
   margin-left: 50px;
   margin-right: 50px;
   margin-top: 20px;
   box-shadow: inset 0px 13px 10px #eef2f3;
+  align-items: center;
+  border-radius: 4px;
 `;
 
-const Button = styled.button `
-box-shadow: inset 0px 1px 0px 0px #84e2f3;
+const Button = styled.button`
+  box-shadow: inset 0px 1px 0px 0px #84e2f3;
   background: linear-gradient(to bottom, #0d82bd 5%, #0d3cbd 100%);
   background-color: #1488cc;
   border-radius: 6px;
@@ -29,15 +31,21 @@ box-shadow: inset 0px 1px 0px 0px #84e2f3;
   padding: 6px 24px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #1488cc;
+  margin-bottom: 5px;
+  margin-top: 5px;
 `;
 
-const SmallButton = styled(Button) `
-display: flex;
-justify-content: center;
-width: 10%;
-font-weight: normal;
+const SmallButton = styled(Button)`
+  display: flex;
+  justify-content: center;
+  width: 10%;
+  font-weight: normal;
+`;
 
-
+const Span = styled.span`
+  display: flex;
+  flex-direction: flex-start;
+  margin-left: 50px;
 `;
 
 function JournalPage(props) {
@@ -60,20 +68,23 @@ function JournalPage(props) {
 
   return (
     <div>
-      <Button onClick={() => deletePost(id)}>Delete Post</Button>
+      {/* <SmallButton onClick={() => deletePost(id)}>Delete Post</SmallButton> */}
       {/* <button onClick={goToEdit}>Edit</button> */}
-      <Link to={"/journallist"}>
-        <Button>Back to Journal List</Button>
-      </Link>
+      <Span>
+        <Link to={"/journallist"}>
+          <Button>Back</Button>
+        </Link>
+      </Span>
 
       <Div>
-        <SmallButton onClick={goToEdit}>Edit</SmallButton>
         <p>
           {" "}
           Name: {props.journal.first_name} {props.journal.last_name}
         </p>
         <p> 📍: {props.journal.location}</p>
         <p> Caption: {props.journal.message}</p>
+        <SmallButton onClick={goToEdit}>Edit</SmallButton>
+        <SmallButton onClick={() => deletePost(id)}>Delete</SmallButton>
       </Div>
     </div>
   );

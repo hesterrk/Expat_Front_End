@@ -20,6 +20,7 @@ const Div = styled.div`
   margin-left: 40px;
   margin-right: 40px;
   box-shadow: inset 0px 13px 10px #eef2f3;
+  border-radius: 4px;
 `;
 const Button = styled.button`
   box-shadow: inset 0px 1px 0px 0px #84e2f3;
@@ -37,6 +38,14 @@ const Button = styled.button`
   margin-left: 40px;
 `;
 
+const SpecialButton = styled(Button) `
+font-weight: normal;
+display: flex;
+margin: 0 auto;
+margin-top: 20px;
+margin-bottom: 20px;
+`;
+
 function JournalList(props) {
   const history = useHistory();
 
@@ -51,7 +60,7 @@ function JournalList(props) {
 
   return (
     <div>
-      <h4> Expat Journal Feed </h4>
+      <h4> Your Feed </h4>
       <Link to="/addjournal">
         <Button>Add New Journal</Button>
       </Link>
@@ -73,7 +82,7 @@ function JournalList(props) {
         </Link>
       ))}
 
-      <button onClick={onLogout}>Log out</button>
+      <SpecialButton onClick={onLogout}>Log out</SpecialButton>
     </div>
   );
 }
