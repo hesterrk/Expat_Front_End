@@ -2,6 +2,40 @@ import React, { useEffect } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getAllJournals } from "./actions/actionCreators";
+import styled from "styled-components";
+
+const P = styled.p`
+  font-size: 0.9rem;
+  color: black;
+
+`;
+
+const Div = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #eef2f3;
+  padding: 0.3rem;
+  margin-left: 40px;
+  margin-right: 40px;
+  box-shadow: inset 0px 13px 10px #eef2f3;
+`;
+const Button = styled.button`
+  box-shadow: inset 0px 1px 0px 0px #84e2f3;
+  background: linear-gradient(to bottom, #0d82bd 5%, #0d3cbd 100%);
+  background-color: #1488cc;
+  border-radius: 6px;
+  border: 1px solid #1488cc;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #1488cc;
+  display: flex;
+  margin-left: 40px;
+`;
 
 function JournalList(props) {
   const history = useHistory();
@@ -17,18 +51,25 @@ function JournalList(props) {
 
   return (
     <div>
-      <h4> Your Page of All Your Journal Posts </h4>
+      <h4> Expat Journal Feed </h4>
       <Link to="/addjournal">
-        <button>Add New Journal</button>
+        <Button>Add New Journal</Button>
       </Link>
+      <br></br>
       {props.journals.map(item => (
-        <Link to={`/journallist/${item.id}`} key={item.id}>
-          <div>
-            <p>First Name: {item.first_name}</p>
-            <p> Last Name: {item.last_name}</p>
-            <p> Location: {item.location}</p>
-            <p> Message: {item.message}</p>
-          </div>
+        <Link
+          to={`/journallist/${item.id}`}
+          key={item.id}
+          style={{ textDecoration: "none" }}
+        >
+          <Div>
+            <P>
+              {" "}
+              Name: {item.first_name} {item.last_name}{" "}
+            </P>
+            <P>📍: {item.location}</P>
+            <P> Caption: {item.message}</P>
+          </Div>
         </Link>
       ))}
 
