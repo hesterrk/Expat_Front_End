@@ -7,7 +7,6 @@ import styled from "styled-components";
 const P = styled.p`
   font-size: 0.9rem;
   color: black;
-
 `;
 
 const Div = styled.div`
@@ -17,10 +16,10 @@ const Div = styled.div`
   justify-content: center;
   border: 2px solid #eef2f3;
   padding: 0.3rem;
-  margin-left: 40px;
-  margin-right: 40px;
   box-shadow: inset 0px 13px 10px #eef2f3;
   border-radius: 4px;
+  width: 60%;
+  margin: 0 auto;
 `;
 const Button = styled.button`
   box-shadow: inset 0px 1px 0px 0px #84e2f3;
@@ -34,16 +33,15 @@ const Button = styled.button`
   padding: 6px 24px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #1488cc;
-  display: flex;
-  margin-left: 40px;
+  margin-bottom: 10px;
 `;
 
-const SpecialButton = styled(Button) `
-font-weight: normal;
-display: flex;
-margin: 0 auto;
-margin-top: 20px;
-margin-bottom: 20px;
+const SpecialButton = styled(Button)`
+  font-weight: normal;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
 `;
 
 function JournalList(props) {
@@ -60,7 +58,7 @@ function JournalList(props) {
 
   return (
     <div>
-      <h4> Your Feed </h4>
+      <h3> Your Feed </h3>
       <Link to="/addjournal">
         <Button>Add New Journal</Button>
       </Link>
