@@ -15,7 +15,7 @@ const Div = styled.div`
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
-  border: 1px solid #eef2f3;
+  border: 2px solid #eef2f3;
   padding: 0.3rem;
   margin-left: 40px;
   margin-right: 40px;

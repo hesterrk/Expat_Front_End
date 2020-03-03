@@ -52,7 +52,7 @@ function AddJournal(props) {
       <form onSubmit={onSubmit}>
         <label> 
           {" "}
-          Message: <br></br>
+          Write a caption... <br></br>
           <Input
             type="text"
             name="message"
@@ -64,7 +64,7 @@ function AddJournal(props) {
         <br></br>
         <label>
           {" "}
-          Location: <br></br>
+          Add Location: <br></br>
           <Input
             type="text"
             name="location"
