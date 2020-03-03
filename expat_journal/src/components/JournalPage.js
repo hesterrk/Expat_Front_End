@@ -18,9 +18,25 @@ const Div = styled.div`
 `;
 
 const Button = styled.button `
+box-shadow: inset 0px 1px 0px 0px #84e2f3;
+  background: linear-gradient(to bottom, #0d82bd 5%, #0d3cbd 100%);
+  background-color: #1488cc;
+  border-radius: 6px;
+  border: 1px solid #1488cc;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #1488cc;
+`;
+
+const SmallButton = styled(Button) `
 display: flex;
 justify-content: center;
 width: 10%;
+font-weight: normal;
+
 
 `;
 
@@ -44,14 +60,14 @@ function JournalPage(props) {
 
   return (
     <div>
-      <button onClick={() => deletePost(id)}>Delete Post</button>
+      <Button onClick={() => deletePost(id)}>Delete Post</Button>
       {/* <button onClick={goToEdit}>Edit</button> */}
       <Link to={"/journallist"}>
-        <button>Back to Journal List</button>
+        <Button>Back to Journal List</Button>
       </Link>
 
       <Div>
-        <Button onClick={goToEdit}>Edit</Button>
+        <SmallButton onClick={goToEdit}>Edit</SmallButton>
         <p>
           {" "}
           Name: {props.journal.first_name} {props.journal.last_name}
