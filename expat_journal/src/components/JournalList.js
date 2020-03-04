@@ -14,7 +14,7 @@ const Div = styled.div`
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
-  border: 2px solid #eef2f3;
+  border: 4px solid #eef2f3;
   padding: 0.3rem;
   box-shadow: inset 0px 13px 10px #eef2f3;
   border-radius: 4px;
@@ -23,9 +23,9 @@ const Div = styled.div`
   background: #dae2f8;
   margin-bottom: 20px;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-
-
-
+  &:hover {
+    background-color: #ece9e6;
+  }
 `;
 const Button = styled.button`
   box-shadow: inset 0px 1px 0px 0px #84e2f3;
@@ -50,6 +50,15 @@ const SpecialButton = styled(Button)`
   margin-bottom: 20px;
 `;
 
+const H2 = styled.h2`
+  display: flex;
+  flex-direction: flex-start;
+  margin-left: 160px;
+  margin-bottom: 10px;
+  padding: 0.4rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+`;
+
 function JournalList(props) {
   const history = useHistory();
 
@@ -64,7 +73,7 @@ function JournalList(props) {
 
   return (
     <div>
-      <h3> Your Feed </h3>
+      <H2> Expat Journal </H2>
       <Link to="/addjournal">
         <Button>Add New Journal</Button>
       </Link>
@@ -79,7 +88,7 @@ function JournalList(props) {
             <P>
               {" "}
               Name: {item.first_name} {item.last_name}{" "}
-            </P> 
+            </P>
             <P>📍: {item.location}</P>
             <P> Caption: {item.message}</P>
           </Div>

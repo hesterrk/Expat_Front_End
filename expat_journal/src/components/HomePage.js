@@ -12,7 +12,7 @@ const Img = styled.img`
   object-fit: cover;
   width: 100%;
   height: 300px;
-  border: 3px solid lavender;
+  border: 6px solid whitesmoke;
   border-radius: 7px;
 `;
 
@@ -41,6 +41,9 @@ const Button = styled.button`
   margin-left: 10px;
   margin-right: 10px;
   margin-bottom: 20px;
+  &:hover {
+    background-color: #7474BF;
+  }
 `;
 
 const SpecialDiv = styled.div`
@@ -66,7 +69,7 @@ function HomePage() {
           fontSize={{ xs: "h6.fontSize" }}
           p={{ xs: 2, sm: 3, md: 4 }}
         >
-          <H1> 🌍 Welcome To Your Expat Journal App 🌍 </H1>
+          <H1> 🌍 Expat Journal App 🌍 </H1>
           <H5> A place for you to share your story with other expats </H5>
 
           <Span className="imageContainer">

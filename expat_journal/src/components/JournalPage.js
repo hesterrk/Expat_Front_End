@@ -9,7 +9,7 @@ const Div = styled.div`
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
-  border: 2px solid #eef2f3;
+  border: 4px solid #eef2f3;
   padding: 0.3rem;
   align-items: center;
   border-radius: 4px;
@@ -17,6 +17,9 @@ const Div = styled.div`
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   width: 70%;
   margin: 20px auto;
+  &:hover {
+    background-color: #ECE9E6;
+  }
 `;
 
 const Button = styled.button`
