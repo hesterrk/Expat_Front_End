@@ -4,6 +4,14 @@ import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import Loader from "react-loader-spinner";
+import img from "./sea.jpeg";
+
+const Div = styled.div`
+  background-image: url(${img});
+  padding-bottom: 420px;
+  padding-top: 10px;
+
+`;
 
 const Input = styled.input`
   padding: 0.5rem;
@@ -48,7 +56,7 @@ function Login(props) {
   };
 
   return (
-    <div>
+    <Div>
       <h3> Welcome Back </h3>
       {props.isLoading && (
         <Loader
@@ -84,7 +92,7 @@ function Login(props) {
         <br></br>
         <Button>Log In</Button>
       </form>
-    </div>
+    </Div>
   );
 }
 

@@ -3,7 +3,13 @@ import { useHistory, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getAllJournals } from "./actions/actionCreators";
 import styled from "styled-components";
+import img from "./sea.jpeg";
 
+const BigDiv = styled.div `
+  background-image: url(${img});
+  padding-bottom: 30px;
+  padding-top: 10px;
+`;
 const P = styled.p`
   font-size: 0.9rem;
   color: black;
@@ -48,6 +54,7 @@ const SpecialButton = styled(Button)`
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 20px;
+  
 `;
 
 const H2 = styled.h2`
@@ -56,7 +63,7 @@ const H2 = styled.h2`
   margin-left: 160px;
   margin-bottom: 10px;
   padding: 0.4rem;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: black;
 `;
 
 function JournalList(props) {
@@ -72,7 +79,7 @@ function JournalList(props) {
   };
 
   return (
-    <div>
+    <BigDiv>
       <H2> Expat Journal </H2>
       <Link to="/addjournal">
         <Button>Add New Journal</Button>
@@ -96,7 +103,7 @@ function JournalList(props) {
       ))}
 
       <SpecialButton onClick={onLogout}>Log out</SpecialButton>
-    </div>
+    </BigDiv>
   );
 }
 
