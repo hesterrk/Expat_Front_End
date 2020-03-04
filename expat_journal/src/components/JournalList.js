@@ -20,6 +20,8 @@ const Div = styled.div`
   border-radius: 4px;
   width: 60%;
   margin: 0 auto;
+  background: #dae2f8;
+  margin-bottom: 20px;
 `;
 const Button = styled.button`
   box-shadow: inset 0px 1px 0px 0px #84e2f3;
@@ -73,7 +75,7 @@ function JournalList(props) {
             <P>
               {" "}
               Name: {item.first_name} {item.last_name}{" "}
-            </P>
+            </P> 
             <P>📍: {item.location}</P>
             <P> Caption: {item.message}</P>
           </Div>

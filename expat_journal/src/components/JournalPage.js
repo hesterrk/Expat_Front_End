@@ -10,13 +10,14 @@ const Div = styled.div`
   flex-direction: column;
   justify-content: center;
   border: 2px solid #eef2f3;
-  padding-left: 0.3rem;
+  padding: 0.3rem;
   margin-left: 50px;
   margin-right: 50px;
   margin-top: 20px;
   box-shadow: inset 0px 13px 10px #eef2f3;
   align-items: center;
   border-radius: 4px;
+  background: #dae2f8;
 `;
 
 const Button = styled.button`
@@ -68,8 +69,6 @@ function JournalPage(props) {
 
   return (
     <div>
-      {/* <SmallButton onClick={() => deletePost(id)}>Delete Post</SmallButton> */}
-      {/* <button onClick={goToEdit}>Edit</button> */}
       <Span>
         <Link to={"/journallist"}>
           <Button>Back</Button>
