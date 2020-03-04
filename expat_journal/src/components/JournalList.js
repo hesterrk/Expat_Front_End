@@ -104,7 +104,7 @@ function JournalList(props) {
               {" "}
               Name: {item.first_name} {item.last_name}{" "}
             </P>
-            <P>📍: {item.location}</P>
+            <P>📍{item.location}</P>
             <P> Caption: {item.message}</P>
           </Div>
         </Link>

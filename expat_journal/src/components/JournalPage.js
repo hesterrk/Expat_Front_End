@@ -82,7 +82,7 @@ function JournalPage(props) {
           {" "}
           Name: {props.journal.first_name} {props.journal.last_name}
         </p>
-        <p> 📍: {props.journal.location}</p>
+        <p> 📍 {props.journal.location}</p>
         <p> Caption: {props.journal.message}</p>
         <SmallButton onClick={goToEdit}>Edit</SmallButton>
         <SmallButton onClick={() => deletePost(id)}>Delete</SmallButton>
