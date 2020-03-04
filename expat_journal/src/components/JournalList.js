@@ -22,6 +22,8 @@ const Div = styled.div`
   margin: 0 auto;
   background: #dae2f8;
   margin-bottom: 20px;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+
 `;
 const Button = styled.button`
   box-shadow: inset 0px 1px 0px 0px #84e2f3;
