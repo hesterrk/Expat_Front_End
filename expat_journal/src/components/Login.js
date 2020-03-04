@@ -3,6 +3,7 @@ import { changeLoginInput, postLogin } from "./actions/actionCreators";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
+import Loader from "react-loader-spinner";
 
 const Input = styled.input`
   padding: 0.5rem;
@@ -49,6 +50,15 @@ function Login(props) {
   return (
     <div>
       <h3> Welcome Back </h3>
+      {props.isLoading && (
+        <Loader
+          type="Puff"
+          color="#00BFFF"
+          height={100}
+          width={100}
+          timeout={300}
+        />
+      )}
       <form className="formContainer" onSubmit={onLogin}>
         <label>
           Email: <br></br>
@@ -81,7 +91,8 @@ function Login(props) {
 const mapStateToProps = state => {
   return {
     email: state.loginFormReducer.loginInput.email,
-    password: state.loginFormReducer.loginInput.password
+    password: state.loginFormReducer.loginInput.password,
+    isLoading: state.loginFormReducer.isLoading
   };
 };
 

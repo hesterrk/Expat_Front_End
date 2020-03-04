@@ -31,7 +31,6 @@ export const loginFormReducer = (state = initialValues, action) => {
       return {
         ...state,
         isLoading: false
-        // userLogin: action.payload
       };
 
     case types.POST_CLEAR_LOGIN:
