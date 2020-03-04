@@ -11,14 +11,12 @@ const Div = styled.div`
   justify-content: center;
   border: 2px solid #eef2f3;
   padding: 0.3rem;
-  margin-left: 50px;
-  margin-right: 50px;
-  margin-top: 20px;
   align-items: center;
   border-radius: 4px;
   background: #dae2f8;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-
+  width: 70%;
+  margin: 20px auto;
 `;
 
 const Button = styled.button`
