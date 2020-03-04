@@ -3,6 +3,7 @@ import { postSignUp, changeSignInput } from "./actions/actionCreators";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
+import Loader from "react-loader-spinner";
 
 const Input = styled.input`
   padding: 0.5rem;
@@ -51,6 +52,15 @@ function SignUp(props) {
 
   return (
     <div>
+      {props.isLoading && (
+        <Loader
+          type="Puff"
+          color="#00BFFF"
+          height={100}
+          width={100}
+          timeout={300}
+        />
+      )}
       <h3> Sign Up in a few simple steps... </h3>
       <br></br>
       <form className="formContainer" onSubmit={onSign}>
@@ -121,7 +131,8 @@ const mapStateToProps = state => {
     password: state.signUpReducer.signUpInput.password,
     confirm_password: state.signUpReducer.signUpInput.confirm_password,
     first_name: state.signUpReducer.signUpInput.first_name,
-    last_name: state.signUpReducer.signUpInput.last_name
+    last_name: state.signUpReducer.signUpInput.last_name,
+    isLoading: state.signUpReducer.isLoading
   };
 };
 
