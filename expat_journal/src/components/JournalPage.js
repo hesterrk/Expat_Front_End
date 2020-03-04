@@ -14,7 +14,7 @@ const Div = styled.div`
   align-items: center;
   border-radius: 4px;
   background: #dae2f8;
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.9);
   width: 70%;
   margin: 20px auto;
   &:hover {

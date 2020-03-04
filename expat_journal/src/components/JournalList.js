@@ -28,7 +28,7 @@ const Div = styled.div`
   margin: 0 auto;
   background: #dae2f8;
   margin-bottom: 20px;
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.9);
   &:hover {
     background-color: #ece9e6;
   }
@@ -45,7 +45,7 @@ const Button = styled.button`
   padding: 6px 24px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #1488cc;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 `;
 
 const SpecialButton = styled(Button)`
