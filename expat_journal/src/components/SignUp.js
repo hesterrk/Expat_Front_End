@@ -10,7 +10,6 @@ const Div = styled.div`
   background-image: url(${img});
   padding-bottom: 200px;
   padding-top: 10px;
-
 `;
 
 const Input = styled.input`
@@ -80,6 +79,7 @@ function SignUp(props) {
             placeholder="Please enter email"
             value={props.email}
             onChange={handleChange}
+            required
           />
         </label>
         <br></br>
@@ -91,6 +91,7 @@ function SignUp(props) {
             placeholder="Please enter Password"
             value={props.password}
             onChange={handleChange}
+            required
           />
         </label>
         <br></br>
@@ -102,6 +103,7 @@ function SignUp(props) {
             placeholder="Please confirm Password"
             value={props.confirm_password}
             onChange={handleChange}
+            required
           />
         </label>
         <br></br>

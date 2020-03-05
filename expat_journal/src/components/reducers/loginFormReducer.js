@@ -5,7 +5,8 @@ const initialValues = {
     email: "",
     password: ""
   },
-  isLoading: false
+  isLoading: false,
+  error: ""
 };
 
 //Functionality for Login form
@@ -31,6 +32,12 @@ export const loginFormReducer = (state = initialValues, action) => {
       return {
         ...state,
         isLoading: false
+      };
+
+    case types.POST_LOGIN_ERROR:
+      return {
+        ...state,
+        error: action.payload
       };
 
     case types.POST_CLEAR_LOGIN:
