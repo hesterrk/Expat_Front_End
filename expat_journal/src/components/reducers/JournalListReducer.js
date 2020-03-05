@@ -50,6 +50,12 @@ export const journalListReducer = (state = initialValues, action) => {
         journals: [...state.journals, action.payload]
       };
 
+      case types.DELETING_JOURNAL_ERROR:
+          return {
+            ...state,
+            error: action.payload
+          };
+
     case types.EDIT_JOURNAL_START:
       return {
         ...state

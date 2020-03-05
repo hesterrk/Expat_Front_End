@@ -179,7 +179,13 @@ export const deleteJournal = id => dispatch => {
         payload: res.data
       });
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      dispatch({
+        type: types.DELETING_JOURNAL_ERROR,
+        payload: err.response
+      });
+      console.log(err);
+    });
 };
 
 //New: input CHANGE FOR updating
