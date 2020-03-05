@@ -107,7 +107,7 @@ const mapStateToProps = state => {
     email: state.loginFormReducer.loginInput.email,
     password: state.loginFormReducer.loginInput.password,
     isLoading: state.loginFormReducer.isLoading,
-    error: state.loginFormReducer.error
+    // error: state.loginFormReducer.error
   };
 };
 
