@@ -55,7 +55,13 @@ function Login(props) {
     history.push("/journallist");
   };
 
+  if(props.error) {
+    history.go(0)
+    return alert('Please Try To Log In Again')
+  }
+
   return (
+
     <Div>
       <h3> Welcome Back </h3>
       {props.isLoading && (
@@ -100,7 +106,8 @@ const mapStateToProps = state => {
   return {
     email: state.loginFormReducer.loginInput.email,
     password: state.loginFormReducer.loginInput.password,
-    isLoading: state.loginFormReducer.isLoading
+    isLoading: state.loginFormReducer.isLoading,
+    error: state.loginFormReducer.error
   };
 };
 
