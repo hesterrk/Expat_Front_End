@@ -88,7 +88,8 @@ const mapStateToProps = state => {
   return {
     message: state.addJournalReducer.message,
     location: state.addJournalReducer.location,
-    isLoading: state.journalListReducer.isLoading
+    isLoading: state.journalListReducer.isLoading,
+    error: state.journalListReducer.error
   };
 };
 
