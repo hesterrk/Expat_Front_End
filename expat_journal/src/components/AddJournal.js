@@ -46,11 +46,15 @@ function AddJournal(props) {
     history.push("/journallist");
   };
 
+  if (props.isLoading) {
+    return <div>Adding New Post...</div>;
+  }
+
   return (
     <div>
       <h3> Add Your New Post </h3>
       <form onSubmit={onSubmit}>
-        <label> 
+        <label>
           {" "}
           Write a caption... <br></br>
           <Input
@@ -73,7 +77,7 @@ function AddJournal(props) {
             onChange={onChange}
           />
         </label>
-    <br></br>
+        <br></br>
         <Button> Post </Button>
       </form>
     </div>
@@ -83,7 +87,8 @@ function AddJournal(props) {
 const mapStateToProps = state => {
   return {
     message: state.addJournalReducer.message,
-    location: state.addJournalReducer.location
+    location: state.addJournalReducer.location,
+    isLoading: state.journalListReducer.isLoading
   };
 };
 

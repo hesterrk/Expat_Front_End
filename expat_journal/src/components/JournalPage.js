@@ -18,7 +18,7 @@ const Div = styled.div`
   width: 70%;
   margin: 20px auto;
   &:hover {
-    background-color: #ECE9E6;
+    background-color: #ece9e6;
   }
 `;
 
@@ -69,6 +69,10 @@ function JournalPage(props) {
     history.push(`/updatejournal/${id}`);
   }
 
+  if (props.isLoading) {
+    return <div>Getting Your Post...</div>;
+  }
+
   return (
     <div>
       <Span>
@@ -93,7 +97,8 @@ function JournalPage(props) {
 
 const mapStateToProps = state => {
   return {
-    journal: state.journalPageReducer.journal
+    journal: state.journalPageReducer.journal,
+    isLoading: state.journalPageReducer.isLoading
   };
 };
 

@@ -51,6 +51,10 @@ function UpdateJournal(props) {
     history.go(-1);
   };
 
+  if (props.isLoading) {
+    return <div> Updating Your Feed...</div>;
+  }
+
   return (
     <div>
       <h3>Update Your Post</h3>
@@ -89,7 +93,8 @@ function UpdateJournal(props) {
 const mapStateToProps = state => {
   return {
     message: state.addJournalReducer.message,
-    location: state.addJournalReducer.location
+    location: state.addJournalReducer.location,
+    isLoading: state.journalListReducer.isLoading
   };
 };
 
