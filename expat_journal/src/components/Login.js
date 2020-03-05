@@ -55,10 +55,10 @@ function Login(props) {
     history.push("/journallist");
   };
 
-  if(props.error || !props.email && props.password ) {
-    history.go(0)
-    return alert('Please Try To Log In Again')
-  }
+  // if(props.error || !props.email && props.password ) {
+  //   history.go(0)
+  //   return alert('Please Try To Log In Again')
+  // }
 
   return (
 
