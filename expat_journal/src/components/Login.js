@@ -51,7 +51,7 @@ function Login(props) {
     props.postLogin({
       email: props.email,
       password: props.password
-    });
+    })
     history.push("/journallist");
   };
 
