@@ -86,6 +86,7 @@ function JournalPage(props) {
           {" "}
           Name: {props.journal.first_name} {props.journal.last_name}
         </p>
+        <img alt={props.journal.location} src={props.journal.image_url} style={{width: '100%', height: '400px', objectFit: 'cover'}} />
         <p> 📍 {props.journal.location}</p>
         <p> Caption: {props.journal.message}</p>
         <SmallButton onClick={goToEdit}>Edit</SmallButton>

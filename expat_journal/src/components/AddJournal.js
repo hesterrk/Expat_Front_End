@@ -37,10 +37,10 @@ const Img = styled.img`
 function AddJournal(props) {
   const history = useHistory();
 
-  const fileInput = React.createRef();
   const formElement = React.createRef();
   const [uploading, setUploading] = React.useState(false);
   const [image_url, setImage_url] = React.useState('');
+  
   const upload = e => {
     e.persist();
     setUploading(true)
@@ -89,10 +89,11 @@ function AddJournal(props) {
     <div>
       <h3> Add Your New Post </h3>
       <form ref={formElement}>
-        <input name="image_url" ref={fileInput} type="file" onChange={upload} />
+        <input name="image_url" type="file" onChange={upload} />
       </form>
       {uploading && (<p>uploading...</p>)}
       {image_url && <Img src={image_url} alt='Image url' />}
+
       <form onSubmit={onSubmit}>
         <label>
           {" "}
