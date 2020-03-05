@@ -175,7 +175,7 @@ export const deleteJournal = id => dispatch => {
       console.log(res, "deleted");
       dispatch({
         type: types.DELETING_JOURNAL_SUCCESS,
-        payload: res.data
+        payload: id
       });
     })
     .catch(err => {

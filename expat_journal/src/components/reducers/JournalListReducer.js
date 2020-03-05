@@ -14,7 +14,7 @@ export const journalListReducer = (state = initialValues, action) => {
       return {
         ...state,
         isLoading: true
-      }
+      };
 
     case types.GET_ALLJOURNALS_SUCCESS:
       return {
@@ -23,17 +23,18 @@ export const journalListReducer = (state = initialValues, action) => {
         journals: action.payload
       };
 
-      case types.GET_ALLJOURNALS_ERROR : 
+    case types.GET_ALLJOURNALS_ERROR:
       return {
-      ...state,
-      error: action.payload
+        ...state,
+        error: action.payload,
+        isLoading: false
       };
 
     case types.POST_JOURNAL_START:
       return {
         ...state,
         isLoading: true
-      }
+      };
 
     case types.POST_JOURNAL_SUCCESS:
       return {
@@ -42,31 +43,34 @@ export const journalListReducer = (state = initialValues, action) => {
         journals: [...state.journals, action.payload]
       };
 
-      case types.POST_JOURNAL_ERROR : 
-            return {
-            ...state,
-            error: action.payload
-            };
+    case types.POST_JOURNAL_ERROR:
+      return {
+        ...state,
+        error: action.payload,
+        isLoading: false
+      };
 
     case types.DELETING_JOURNAL_START:
       return {
         ...state,
         isLoading: true
-
       };
 
     case types.DELETING_JOURNAL_SUCCESS:
       return {
         ...state,
         isLoading: false,
-        journals: [...state.journals, action.payload]
+        journals: state.journals.filter(
+          jour => jour.id !== Number(action.payload)
+        )
       };
 
-      case types.DELETING_JOURNAL_ERROR:
-          return {
-            ...state,
-            error: action.payload
-          };
+    case types.DELETING_JOURNAL_ERROR:
+      return {
+        ...state,
+        error: action.payload,
+        isLoading: false
+      };
 
     case types.EDIT_JOURNAL_START:
       return {
@@ -78,13 +82,16 @@ export const journalListReducer = (state = initialValues, action) => {
       return {
         ...state,
         isLoading: false,
-        journals: [...state.journals, action.payload]
+        journals: state.journals.map(journal =>
+          journal.id === action.payload.id ? action.payload : journal
+        )
       };
 
     case types.EDIT_JOURNAL_ERROR:
       return {
         ...state,
-        error: action.payload
+        error: action.payload,
+        isLoading: false
       };
 
     default:

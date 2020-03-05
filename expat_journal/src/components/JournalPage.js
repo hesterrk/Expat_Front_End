@@ -61,7 +61,7 @@ function JournalPage(props) {
 
   function deletePost(id) {
     props.deleteJournal(id);
-    history.go(-1);
+    history.push('/journallist')
   }
 
   function goToEdit(e) {
