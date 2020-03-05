@@ -9,7 +9,8 @@ const initialValues = {
     last_name: ""
   },
   isLoading: false,
-  sendUser: {}
+  sendUser: {},
+  error: ""
 };
 
 export const signUpReducer = (state = initialValues, action) => {
@@ -34,6 +35,12 @@ export const signUpReducer = (state = initialValues, action) => {
         ...state,
         isLoading: false,
         sendUser: action.payload
+      };
+
+    case types.POST_REGISTER_ERROR:
+      return {
+        ...state,
+        error: action.payload
       };
 
     case types.POST_CLEAR_REGISTER:

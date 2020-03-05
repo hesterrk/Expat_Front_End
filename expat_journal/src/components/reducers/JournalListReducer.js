@@ -1,7 +1,8 @@
 import * as types from "../actions/actionTypes";
 
 const initialValues = {
-  journals: []
+  journals: [],
+  error: ""
 };
 
 //GETTING ALL JOURNALS AND ADDING NEW JOURNAL reducer and DELETING
@@ -17,6 +18,12 @@ export const journalListReducer = (state = initialValues, action) => {
         journals: action.payload
       };
 
+      case types.GET_ALLJOURNALS_ERROR : 
+      return {
+      ...state,
+      error: action.payload
+      };
+
     case types.POST_JOURNAL_START:
       return initialValues;
 
@@ -25,6 +32,12 @@ export const journalListReducer = (state = initialValues, action) => {
         ...state,
         journals: [...state.journals, action.payload]
       };
+
+      case types.POST_JOURNAL_ERROR : 
+            return {
+            ...state,
+            error: action.payload
+            };
 
     case types.DELETING_JOURNAL_START:
       return {
@@ -46,6 +59,12 @@ export const journalListReducer = (state = initialValues, action) => {
       return {
         ...state,
         journals: [...state.journals, action.payload]
+      };
+
+    case types.EDIT_JOURNAL_ERROR:
+      return {
+        ...state,
+        error: action.payload
       };
 
     default:

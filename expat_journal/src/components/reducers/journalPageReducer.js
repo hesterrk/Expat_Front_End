@@ -1,7 +1,8 @@
 import * as types from "../actions/actionTypes";
 
 const initialValues = {
-  journal: []
+  journal: [],
+  error: ""
 };
 
 export const journalPageReducer = (state = initialValues, action) => {
@@ -13,6 +14,11 @@ export const journalPageReducer = (state = initialValues, action) => {
       return {
         ...state,
         journal: action.payload
+      };
+    case types.GET_ONEJOURNAL_ERROR:
+      return {
+        ...state,
+        error: action.payload
       };
 
     default:

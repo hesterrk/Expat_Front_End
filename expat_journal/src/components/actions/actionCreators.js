@@ -28,6 +28,10 @@ export const postLogin = ({ email, password }) => dispatch => {
       });
     })
     .catch(err => {
+      dispatch({
+        type: types.POST_LOGIN_ERROR,
+        payload: err.response
+      });
       console.log(err);
     });
 };
@@ -68,6 +72,10 @@ export const postSignUp = ({
       return true;
     })
     .catch(err => {
+      dispatch({
+        type: types.POST_REGISTER_ERROR,
+        payload: err.response
+      });
       console.log(err);
     });
 };
@@ -87,6 +95,10 @@ export const getAllJournals = () => dispatch => {
       });
     })
     .catch(err => {
+      dispatch({
+        type: types.GET_ALLJOURNALS_ERROR,
+        payload: err.response
+      });
       console.log(err);
     });
 };
@@ -108,6 +120,10 @@ export const getOneJournal = id => dispatch => {
       });
     })
     .catch(err => {
+      dispatch({
+        type: types.GET_ONEJOURNAL_ERROR,
+        payload: err.response
+      });
       console.log(err);
     });
 };
@@ -131,7 +147,13 @@ export const postNewJournal = ({ message, location }) => dispatch => {
         payload: res.data.journal
       });
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      dispatch({
+        type: types.POST_JOURNAL_ERROR,
+        payload: err.response
+      });
+      console.log(err);
+    });
 };
 
 //INPUT CHANGE FOR ADDING NEW
@@ -152,7 +174,6 @@ export const deleteJournal = id => dispatch => {
     .delete(`api/v1/journals/${id}`)
     .then(res => {
       console.log(res, "deleted");
-      //CHECK IS RES.DATA NEED TO DELETE? OR RES.DATA.JOURNAL
       dispatch({
         type: types.DELETING_JOURNAL_SUCCESS,
         payload: res.data
@@ -187,5 +208,12 @@ export const updateTheJournal = ({ id, message, location }) => dispatch => {
         payload: res.data.journal
       });
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      dispatch({
+        type: types.EDIT_JOURNAL_ERROR,
+        payload: err.response
+      });
+
+      console.log(err);
+    });
 };
