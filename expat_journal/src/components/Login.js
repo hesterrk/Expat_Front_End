@@ -55,10 +55,10 @@ function Login(props) {
     history.push("/journallist");
   };
 
-  // if(props.error || !props.email && props.password ) {
-  //   history.go(0)
-  //   return alert('Please Try To Log In Again')
-  // }
+  if(props.error || !props.email && props.password ) {
+    history.go(0)
+    return alert('Please Try To Log In Again')
+  }
 
   return (
 
@@ -107,7 +107,7 @@ const mapStateToProps = state => {
     email: state.loginFormReducer.loginInput.email,
     password: state.loginFormReducer.loginInput.password,
     isLoading: state.loginFormReducer.isLoading,
-    // error: state.loginFormReducer.error
+    error: state.loginFormReducer.error
   };
 };
 
