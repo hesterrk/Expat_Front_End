@@ -10,7 +10,6 @@ const Div = styled.div`
   background-image: url(${img});
   padding-bottom: 200px;
   padding-top: 10px;
-
 `;
 
 const Input = styled.input`
@@ -57,6 +56,11 @@ function SignUp(props) {
     });
     history.push("/login");
   };
+
+  if (props.error) {
+    history.go(0);
+    return alert("Please Try To Sign Up Again");
+  }
 
   return (
     <Div>
@@ -143,7 +147,8 @@ const mapStateToProps = state => {
     confirm_password: state.signUpReducer.signUpInput.confirm_password,
     first_name: state.signUpReducer.signUpInput.first_name,
     last_name: state.signUpReducer.signUpInput.last_name,
-    isLoading: state.signUpReducer.isLoading
+    isLoading: state.signUpReducer.isLoading,
+    error: state.signUpReducer.error
   };
 };
 
