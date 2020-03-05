@@ -104,8 +104,9 @@ function JournalList(props) {
               {" "}
               Name: {item.first_name} {item.last_name}{" "}
             </P>
-            <P>📍{item.location}</P>
+            <img alt={item.location} src={item.image_url} style={{width: '400px', height: '400px', objectFit: 'cover'}} />
             <P> Caption: {item.message}</P>
+            <P>📍{item.location}</P>
           </Div>
         </Link>
       ))}
