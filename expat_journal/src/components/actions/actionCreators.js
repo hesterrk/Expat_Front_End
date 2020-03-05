@@ -68,7 +68,7 @@ export const postSignUp = ({
         type: types.POST_REGISTER_SUCCESS,
         payload: res.data
       });
-      return true;
+      // return true;
     })
     .catch(err => {
       dispatch({
