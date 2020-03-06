@@ -2,6 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { postNewJournal, changeAddJournal } from "./actions/actionCreators";
 import { connect } from "react-redux";
+import axios from "axios";
 import styled from "styled-components";
 
 const Input = styled.input`
@@ -27,8 +28,41 @@ const Button = styled.button`
   text-shadow: 0px 1px 0px #1488cc;
 `;
 
+const Img = styled.img`
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+`
+
 function AddJournal(props) {
   const history = useHistory();
+
+  const formElement = React.createRef();
+  const [uploading, setUploading] = React.useState(false);
+  const [image_url, setImage_url] = React.useState('');
+  
+  const upload = e => {
+    e.persist();
+    setUploading(true)
+    const token = localStorage.getItem('token')
+    axios({
+      method: "post",
+      url: "https://expat-journals.herokuapp.com/api/v1/journals/upload",
+      headers: {
+        "Content-Type": "application/form-data",
+        Authorization: token
+      },
+      data: new FormData(formElement.current)
+    })
+      .then(res => {
+        setImage_url(res.data.image_url)
+        setUploading(false)
+      })
+      .catch(err => {
+        console.log(err)
+        setUploading(false)
+      })
+  };
 
   const onChange = e => {
     props.changeAddJournal({
@@ -41,7 +75,8 @@ function AddJournal(props) {
     e.preventDefault();
     props.postNewJournal({
       message: props.message,
-      location: props.location
+      location: props.location,
+      image_url
     });
     history.push("/journallist");
   };
@@ -53,6 +88,12 @@ function AddJournal(props) {
   return (
     <div>
       <h3> Add Your New Post </h3>
+      <form ref={formElement}>
+        <input name="image_url" type="file" onChange={upload} />
+      </form>
+      {uploading && (<p>uploading...</p>)}
+      {image_url && <Img src={image_url} alt='Image url' />}
+
       <form onSubmit={onSubmit}>
         <label>
           {" "}

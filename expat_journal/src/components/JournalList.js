@@ -9,6 +9,7 @@ const BigDiv = styled.div`
   background-image: url(${img});
   padding-bottom: 30px;
   padding-top: 10px;
+  min-height: 100vh;
 `;
 const P = styled.p`
   font-size: 0.9rem;
@@ -104,8 +105,9 @@ function JournalList(props) {
               {" "}
               Name: {item.first_name} {item.last_name}{" "}
             </P>
-            <P>📍{item.location}</P>
+            <img alt={item.location} src={item.image_url} style={{width: '100%', height: '400px', objectFit: 'cover'}} />
             <P> Caption: {item.message}</P>
+            <P>📍{item.location}</P>
           </Div>
         </Link>
       ))}

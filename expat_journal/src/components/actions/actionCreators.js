@@ -129,7 +129,7 @@ export const getOneJournal = id => dispatch => {
 
 //Posting: adding new Journal
 
-export const postNewJournal = ({ message, location }) => dispatch => {
+export const postNewJournal = ({ message, location, image_url }) => dispatch => {
   dispatch({
     type: types.POST_JOURNAL_START
   });
@@ -137,7 +137,8 @@ export const postNewJournal = ({ message, location }) => dispatch => {
   axiosWithAuth()
     .post("api/v1/journals", {
       message,
-      location
+      location,
+      image_url
     })
     .then(res => {
       console.log(res.data);
