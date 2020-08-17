@@ -8,8 +8,8 @@ import img from "./sea.jpeg";
 
 const Div = styled.div`
   background-image: url(${img});
-  padding-bottom: 200px;
   padding-top: 10px;
+  height: 100vh;
 `;
 
 const Input = styled.input`

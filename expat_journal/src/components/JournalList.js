@@ -7,9 +7,9 @@ import img from "./sea.jpeg";
 
 const BigDiv = styled.div`
   background-image: url(${img});
-  padding-bottom: 30px;
   padding-top: 10px;
   min-height: 100vh;
+  
 `;
 const P = styled.p`
   font-size: 0.9rem;
@@ -53,7 +53,6 @@ const SpecialButton = styled(Button)`
   font-weight: normal;
   display: flex;
   margin: 0 auto;
-  margin-top: 20px;
   margin-bottom: 20px;
 `;
 
@@ -102,7 +101,7 @@ function JournalList(props) {
         >
           <Div>
             <P>
-              {" "}
+              
               Name: {item.first_name} {item.last_name}{" "}
             </P>
             <img alt={item.location} src={item.image_url} style={{width: '100%', height: '400px', objectFit: 'cover'}} />
